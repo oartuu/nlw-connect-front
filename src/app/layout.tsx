@@ -24,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${oxanium.variable} ${montserrat.variable}`}>
-      <body className="bg-gray-900 text-gray-100 font-antialiased bg-[url(/background.png)] bg-no-repeat bg-top md:bg-right-top">{children}</body>
+      <body className="bg-gray-900 text-gray-100 font-antialiased bg-[url(/background.png)] bg-no-repeat bg-top md:bg-right-top">
+       <main className="max-w-[1224px] mx-auto px-5 py-8 md:py-0">
+        {children}
+      </main>
+      </body>
     </html>
   );
 }

@@ -1,5 +1,4 @@
-import { ComponentProps } from "react";
-
+import { type ComponentProps, ReactNode } from "react";
 
 interface InputRootProps extends ComponentProps<"div"> {
   error?: boolean;
