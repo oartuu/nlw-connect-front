@@ -1,20 +1,22 @@
 import Image from "next/image";
 
-import Logo from '../../assets/Logo.svg'
+import Logo from "../../../assets/Logo.svg";
 
-
-import { InputField, InputIcon, InputRoot } from "@/components/Input";
-import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from "lucide-react";
-import { IconButton } from "@/components/IconButton";
 import { Ranking } from "./ranking";
 import { Stats } from "./stats";
 import InviteLinkInput from "./invite-link-input";
 
+interface InvitePageProps {
+  params: Promise<{ subscriberId: string }>;
+}
+
+export default async function InvitePage(props: InvitePageProps) {
+
+  const {subscriberId} = await props.params;
+
+  const inviteLink = `http://localhost:3333/invites/${subscriberId}`;
 
 
-export default function InvitePage() {
-
-  const inviteLink =  "https://localhost:3000/invite/904982304820854"
 
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
@@ -41,17 +43,13 @@ export default function InvitePage() {
             </p>
           </div>
 
-          <InviteLinkInput inviteLink={inviteLink}/>
+          <InviteLinkInput inviteLink={inviteLink} />
 
-          <Stats/>
-
+          <Stats subscriberId={subscriberId} />
         </div>
       </div>
 
-        <Ranking/>
-     
+      <Ranking />
     </div>
   );
 }
-
-
